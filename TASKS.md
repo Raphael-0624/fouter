@@ -11,7 +11,7 @@
 | 属性 | 值 |
 |------|-----|
 | **整体状态** | 🔄 IN_PROGRESS |
-| **当前任务** | Task 4 |
+| **当前任务** | Task 5 |
 | **已完成** | 0 / 11 |
 | **进度** | 0% |
 | **最后心跳** | 2026-04-02 19:23:51 |
@@ -63,13 +63,13 @@
 
 ### Phase 3: Auth Service
 
-- [ ] **Task 4**: Auth Service Core
-  - **状态**: ⏳ PENDING
+- [x] **Task 4**: Auth Service Core
+  - **状态**: ✅ COMPLETED
   - **文件**: `services/auth-service/`
   - **提交信息**: `feat: add auth service core`
   - **耗时估计**: 15 分钟
-  - **开始时间**: -
-  - **完成时间**: -
+  - **开始时间**: 2026-04-02 19:28:00
+  - **完成时间**: 2026-04-02 19:30:00
   - **备注**: -
 
 - [ ] **Task 5**: Auth Service JWT & Feishu
