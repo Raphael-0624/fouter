@@ -11,7 +11,7 @@
 | 属性 | 值 |
 |------|-----|
 | **整体状态** | 🔄 IN_PROGRESS |
-| **当前任务** | Task 5 |
+| **当前任务** | Task 6 |
 | **已完成** | 0 / 11 |
 | **进度** | 0% |
 | **最后心跳** | 2026-04-02 19:23:51 |
@@ -72,13 +72,13 @@
   - **完成时间**: 2026-04-02 19:30:00
   - **备注**: -
 
-- [ ] **Task 5**: Auth Service JWT & Feishu
-  - **状态**: ⏳ PENDING
+- [x] **Task 5**: Auth Service JWT & Feishu
+  - **状态**: ✅ COMPLETED
   - **文件**: `services/auth-service/`
   - **提交信息**: `feat: complete auth service implementation`
   - **耗时估计**: 25 分钟
-  - **开始时间**: -
-  - **完成时间**: -
+  - **开始时间**: 2026-04-02 19:30:00
+  - **完成时间**: 2026-04-02 19:33:00
   - **备注**: -
 
 ### Phase 4: Proxy Service
