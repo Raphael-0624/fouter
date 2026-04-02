@@ -10,12 +10,12 @@
 
 | 属性 | 值 |
 |------|-----|
-| **整体状态** | ⏳ PENDING |
-| **当前任务** | - |
+| **整体状态** | 🔄 IN_PROGRESS |
+| **当前任务** | Task 1 |
 | **已完成** | 0 / 11 |
 | **进度** | 0% |
-| **最后心跳** | - |
-| **最后执行者** | - |
+| **最后心跳** | 2026-04-02 19:23:51 |
+| **最后执行者** | Claude |
 
 ---
 
@@ -33,13 +33,13 @@
 ### Phase 1: Infrastructure
 
 - [ ] **Task 1**: Infrastructure Setup
-  - **状态**: ⏳ PENDING
+  - **状态**: 🔄 IN_PROGRESS
   - **文件**: `docker-compose.yml`, `.env.example`, `nginx/nginx.conf`
   - **提交信息**: `chore: initialize project infrastructure`
   - **耗时估计**: 15 分钟
-  - **开始时间**: -
+  - **开始时间**: 2026-04-02 19:24:00
   - **完成时间**: -
-  - **备注**: -
+  - **备注**: 激活心跳机制
 
 - [ ] **Task 2**: Database Schema
   - **状态**: ⏳ PENDING
