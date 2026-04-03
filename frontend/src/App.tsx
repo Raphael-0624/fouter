@@ -1,8 +1,6 @@
 import React from 'react';
-import { Dashboard } from './Dashboard';
+import { Dashboard } from './pages/Dashboard';
 import './styles/global.css';
-
-const isAuthenticated = () => localStorage.getItem('token') !== null;
 
 const Layout: React.FC = () => {
   return (
