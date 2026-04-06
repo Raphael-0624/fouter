@@ -83,9 +83,9 @@ class ProxyService:
         self.detector.detect(request_text)
 
         url = f"{provider.base_url}{request_path}"
-        async with self.http_client.stream("POST", url, headers=headers, json=request_body) as response:
-            if response.status_code != 200:
-                body = await response.aread()
-                raise HTTPException(status_code=response.status_code, detail=body.decode())
-            async for chunk in response.aiter_bytes():
-                yield chunk
+        # Use regular POST instead of stream() since MiniMax returns complete JSON
+        response = await self.http_client.post(url, headers=headers, json=request_body)
+        if response.status_code != 200:
+            raise HTTPException(status_code=response.status_code, detail=response.text)
+        # Return as SSE stream format
+        yield f"data: {response.text}\n\n".encode()
