@@ -2,6 +2,7 @@ from fastapi import APIRouter, Depends, HTTPException
 from fastapi.security import HTTPBearer, HTTPAuthorizationCredentials
 from sqlalchemy.ext.asyncio import AsyncSession
 from sqlalchemy import select
+from typing import List
 import secrets
 import hashlib
 
@@ -47,7 +48,7 @@ async def create_key(request: UserKeyCreate, credentials: HTTPAuthorizationCrede
     return response
 
 
-@router.get("/keys", response_model=list[UserKeyResponse])
+@router.get("/keys", response_model=List[UserKeyResponse])
 async def list_keys(credentials: HTTPAuthorizationCredentials = Depends(security), db: AsyncSession = Depends(get_db)):
     user_id = await get_current_user_id(credentials, db)
 

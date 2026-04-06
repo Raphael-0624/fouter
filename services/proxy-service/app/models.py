@@ -17,6 +17,8 @@ class Provider(Base):
     balance = Column(DECIMAL(20, 4))
     is_active = Column(Boolean, default=True)
     priority = Column(Integer, default=0)
+    created_at = Column(DateTime, default=datetime.utcnow)
+    updated_at = Column(DateTime, default=datetime.utcnow)
 
 
 class Model(Base):
@@ -25,7 +27,13 @@ class Model(Base):
     provider_id = Column(Integer, ForeignKey("providers.id"))
     model_id = Column(String(128), nullable=False)
     display_name = Column(String(128), nullable=False)
+    description = Column(Text)
+    context_window = Column(Integer)
+    input_price_per_1k = Column(DECIMAL(10, 6))
+    output_price_per_1k = Column(DECIMAL(10, 6))
+    capabilities = Column(JSON, default={})
     is_active = Column(Boolean, default=True)
+    created_at = Column(DateTime, default=datetime.utcnow)
 
 
 class UserKey(Base):
@@ -33,4 +41,9 @@ class UserKey(Base):
     id = Column(Integer, primary_key=True)
     user_id = Column(Integer)
     key_hash = Column(String(128), nullable=False)
+    name = Column(String(128))
+    rate_limit_rpm = Column(Integer, default=60)
     is_active = Column(Boolean, default=True)
+    last_used_at = Column(DateTime)
+    expires_at = Column(DateTime)
+    created_at = Column(DateTime, default=datetime.utcnow)

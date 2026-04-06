@@ -1,9 +1,42 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { useNavigate, useSearchParams } from 'react-router-dom';
 import { Button } from '../components/Button';
+import { authApi } from '../api/auth';
+import { useAuth } from '../context/AuthContext';
 
 export const Login: React.FC = () => {
+  const [searchParams] = useSearchParams();
+  const navigate = useNavigate();
+  const { isAuthenticated, loading } = useAuth();
+
+  useEffect(() => {
+    // Handle OAuth callback
+    const code = searchParams.get('code');
+    const state = searchParams.get('state');
+
+    if (code && state) {
+      handleCallback(code, state);
+    }
+  }, [searchParams]);
+
+  useEffect(() => {
+    if (isAuthenticated && !loading) {
+      navigate('/dashboard');
+    }
+  }, [isAuthenticated, loading, navigate]);
+
+  const handleCallback = async (code: string, state: string) => {
+    try {
+      await authApi.callback(code, state);
+      navigate('/dashboard');
+    } catch (error) {
+      console.error('Login failed:', error);
+      alert('登录失败，请重试');
+    }
+  };
+
   const handleFeishuLogin = () => {
-    alert('飞书登录功能需要配置 FEISHU_APP_ID');
+    authApi.login();
   };
 
   return (
